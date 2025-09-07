@@ -67,8 +67,11 @@ def classify_review(review_text: str, model: str = MODEL) -> str:
     # call query_ollama with your prompt and store the result using a variable
     # depending on the result, return "positive" or "negative" as a string
 
-    prompt = f'Classify the following movie review as either "positive" or "negative". Respond with only one of these two words. Review: {review_text}'
-    result = query_ollama(prompt=prompt, model=model).strip().lower()
+    prompt1 = f'Read this review and answer with either "positive" or negative": {review_text}'
+    prompt2 = f'Classify this movie review as either "positive" or "negative":{review_text}'
+    prompt3 = f'TAKE THIS MOVIE REVIEW AND RESPOND WITH ONLY ONE WORD, EITHER "positive" OR "negative" AND NOTHING ELSE: {review_text}'
+
+    result = query_ollama(prompt=prompt1, model=model).strip().lower()
     
     print(f"DEBUG: result='{result}'")  # you can comment this out later
 
