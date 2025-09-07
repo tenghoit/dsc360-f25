@@ -11,7 +11,7 @@
 
 import ollama
 
-MODEL = "gemma3:4b"  # default small model
+MODEL = "gemma3:1b"  # default small model
 
 def query_ollama(prompt: str, model: str) -> str:
     """Call Ollama with the user prompt and return the reply text."""
@@ -25,8 +25,7 @@ def query_ollama(prompt: str, model: str) -> str:
         ])
         return response.message.content
     except ollama.ResponseError as e:
-        print(f'Error: {e.error}')
-        return e
+        return f'Error: {e.error}'
 
 
 def main() -> None:
