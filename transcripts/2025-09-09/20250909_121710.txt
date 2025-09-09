@@ -1,0 +1,6 @@
+[2025-09-09T12:17:23] [user] hi
+[2025-09-09T12:17:24] [assistant] Hi there! How's your day going? 😊 
+
+Is there anything you'd like to chat about or any help I can offer?
+[2025-09-09T12:17:42] [system] Switched to model: gemma3:4b
+[2025-09-09T12:18:03] [system] In-memory history cleared.

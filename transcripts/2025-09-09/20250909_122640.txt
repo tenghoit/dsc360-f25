@@ -1,0 +1,4 @@
+[2025-09-09T12:26:50] [user] /model gen
+[2025-09-09T12:26:50] [system] Model not recognized. Available models: ['gemma3:1b', 'gemma3:4b', 'gemma3:12b']
+[2025-09-09T12:28:35] [user] /exit
+[2025-09-09T12:28:35] [system] Exiting...
