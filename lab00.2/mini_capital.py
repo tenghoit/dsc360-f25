@@ -17,13 +17,17 @@ def query_ollama(prompt: str, model: str) -> str:
     """Call Ollama with the user prompt and return the reply text."""
     # Use ollama.chat(...) with role="user" and return the text response.
     try:
-        response =  ollama.chat(model=model, messages=[
+        stream =  ollama.chat(model=model, messages=[
             {
                 'role':'user',
                 'content': prompt,
             },
-        ])
-        return response.message.content
+        ], stream=True)
+        
+        for chunk in stream:
+            print(chunk.message.content, end='', flush=True)
+
+        return stream.message.content or ''
     except ollama.ResponseError as e:
         return f'Error: {e.error}'
 

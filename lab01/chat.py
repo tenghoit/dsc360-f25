@@ -7,8 +7,14 @@ def query_ollama(messages, model: str) -> str:
     """Call Ollama with the user prompt and return the reply text."""
     # Use ollama.chat(...) with role="user" and return the text response.
     try:
-        response = ollama.chat(model=model, messages=messages)
-        return response.message.content or ''
+        stream = ollama.chat(model=model, messages=messages, stream=True)
+
+        full_message = ''
+        for chunk in stream:
+            full_message += chunk.message.content or ''
+            print(chunk.message.content, end='', flush=True)
+        
+        return full_message or ''
     except ollama.ResponseError as e:
         return f'Error: {e.error}'
     
@@ -23,7 +29,7 @@ def log(message: str, role: str, file_path: str):
     with open(file_path, 'a') as f:
         f.write(f"[{get_timestamp()}] [{role}] {message}\n")
 
-    if role != 'user':
+    if role == 'system':
         print(message)
 
 
@@ -81,6 +87,7 @@ def main():
         else:
             messages.append({'role': 'assistant', 'content': response})
             log(response, 'assistant', log_file_path)
+            print()
 
 
 if __name__ == "__main__":
