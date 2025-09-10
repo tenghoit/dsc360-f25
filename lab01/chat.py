@@ -86,7 +86,7 @@ def main():
             log(response, 'system', log_file_path)
         else:
             messages.append({'role': 'assistant', 'content': response})
-            log(response, 'assistant', log_file_path)
+            log(response, CURRENT_MODEL, log_file_path)
             print()
 
 

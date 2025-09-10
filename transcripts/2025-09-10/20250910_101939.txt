@@ -1,0 +1,8 @@
+[2025-09-10T10:19:41] [user] hi
+[2025-09-10T10:19:43] [gemma3:1b] Hi there! How's your day going? 😊 
+
+Is there anything you'd like to chat about or any help I can offer?
+[2025-09-10T10:20:06] [user] /model gemma3:4b
+[2025-09-10T10:20:06] [system] Switched to model: gemma3:4b
+[2025-09-10T10:20:25] [user] /exit
+[2025-09-10T10:20:25] [system] Exiting...
